@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="wifilivre">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>wifilivre</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/controllers/local-controller.js"></script>
+
+
+</head>
+
+<body ng-controller="LocalController">
+    <div class="container-fluid">
+
+        <div class="jumbotron">
+            <h1 class="text-center">Wifi-livre</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form>
+                    <input class="form-control" placeholder="filtrar" ng-model="filtro" ng-model-options="{debounce:500}">
+                </form>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-condensed">
+                <thead>
+                    <th>Empresa</th>
+                    <th>Endereco</th>
+                    <th>Logomarca</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>NomeRede</th>
+                    <th>Setor</th>
+                    <th>Site</th>
+                </thead>
+                <tbody ng-repeat="local in locais | filter: filtro">
+                    <tr>
+                        <td>{{local.Empresa}}</td>
+                        <td>{{local.Endereco}}</td>
+                        <td>{{local.Logomarca}}></td>
+                        <td>{{local.Latitude}}</td>
+                        <td>{{local.Longitude}}</td>
+                        <td>{{local.NomeRede}}</td>
+                        <td>{{local.Setor}}</td>
+                        <td>{{local.Site}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+
+</html>>>
